@@ -11,14 +11,11 @@ public class RemoveSelected {
     private final int REMOVE_FIRST_BY_LASTNAME = 2;
     private final int REMOVE_FIRST_BY_AGE = 3;
     private final int REMOVE_FIRST_BY_SEX = 4;
-    private final int REMOVE_ALL_BY_STATUS = 5;
-    private final int REMOVE_ALL_BY_FIRSTNAME = 6;
-    private final int REMOVE_ALL_BY_LASTNAME = 7;
-    private final int REMOVE_ALL_BY_AGE = 8;
-    private final int REMOVE_ALL_BY_SEX = 9;
-    private final int REMOVE_BY_FULL_NAME = 10;
-    private final int REMOVE_ALL = 11;
-    private final int BACK_TO_MAIN_MENU = 12;
+    private final int REMOVE_ALL_BY_FIRSTNAME = 5;
+    private final int REMOVE_ALL_BY_LASTNAME = 6;
+    private final int REMOVE_ALL_BY_AGE = 7;
+    private final int REMOVE_ALL_BY_SEX = 8;
+    private final int BACK_TO_MAIN_MENU = 9;
     private final int EXIT = 0;
 
     public int removeSelected() {
@@ -65,12 +62,6 @@ public class RemoveSelected {
                 return 1;
             }
 
-            case REMOVE_ALL_BY_STATUS: {
-
-                System.out.println(" Sorry this option in progress !");                    // Not ready class to that
-                return 1;
-            }
-
             case REMOVE_ALL_BY_FIRSTNAME: {
 
                 action.removeAllByIndexFirstName(scan.getStudentName());
@@ -92,18 +83,6 @@ public class RemoveSelected {
             case REMOVE_ALL_BY_SEX: {                                                     // Out of bounds ??
 
                 action.removeAllByIndexSex(scan.getStudentName());
-                return 1;
-            }
-
-            case REMOVE_BY_FULL_NAME: {
-
-                System.out.println(" Sorry this option in progress !");                    // Return to this
-                return 1;
-            }
-
-            case REMOVE_ALL: {
-
-                System.out.println(" Sorry this option in progress !");                    // Return to this
                 return 1;
             }
 

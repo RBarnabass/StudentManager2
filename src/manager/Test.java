@@ -28,12 +28,6 @@ public class Test {
             new NoteOutBook().getNoteBook();
 */
        // new NoteOutBook().getNoteBook();
-        /*
-        Student stud;
-        stud = (Student) sg.getPerson(1);
-        System.out.println(stud.getFirstName());*/
-
-       //sg.getAllGroup();
 
     }
 }

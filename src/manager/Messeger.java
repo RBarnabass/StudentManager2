@@ -53,17 +53,6 @@ public class Messeger {
         System.out.println(" Was set default value");
     }
 
-    public static void removeName() {
-        System.out.println(" For removing enter first or last name student");
-    }
-
-    public static void staff() {
-
-        System.out.println();
-        System.out.println(" = = = That's all what we have = = = ");
-        System.out.println();
-    }
-
     // ------------------- ADD -------------------------------------------------------------------------------------------
 
     public static void addMenu() {
@@ -82,7 +71,7 @@ public class Messeger {
         System.out.println();
         System.out.println(" - - - Choose your action, please - - - ");
         System.out.println();
-        System.out.println(" >>> 1 - Get all persons by first name\n >>> 2 - Get all persons by last name\n >>> 3 - Get all persons by age\n >>> 4 - Get all persons by sex\n >>> 5 - Get all persons by status (Doesn't work)\n >>> 6 - Back to main menu\n >>> 0 - Exit");
+        System.out.println(" >>> 1 - Get all persons by first name\n >>> 2 - Get all persons by last name\n >>> 3 - Get all persons by age\n >>> 4 - Get all persons by sex\n >>> 5 - Back to main menu\n >>> 0 - Exit");
 
     }
 
@@ -93,8 +82,8 @@ public class Messeger {
         System.out.println();
         System.out.println(" - - - Choose your action, please - - - ");
         System.out.println();
-        System.out.println(" >>> 1  - Remove first person by first name\n >>> 2  - Remove first person by last name\n >>> 3  - Remove first person by age\n >>> 4  - Remove first person by sex\n >>> 5  - Remove all persons by status (Doesn't work)\n" +
-                " >>> 6  - Remove all persons by first name\n >>> 7  - Remove all persons by last name\n >>> 8  - Remove all persons by age\n >>> 9  - Remove all persons by sex (Only if some persons can stay in group) \n >>> 10 - Remove by full name (Doesn't work)\n >>> 11 - Remove all (Doesn't work)\n >>> 12 - Back to main menu\n >>> 0  - Exit");
+        System.out.println(" >>> 1  - Remove first person by first name\n >>> 2  - Remove first person by last name\n >>> 3  - Remove first person by age\n >>> 4  - Remove first person by sex\n " +
+                " >>> 5  - Remove all persons by first name\n >>> 6  - Remove all persons by last name\n >>> 7  - Remove all persons by age\n >>> 8  - Remove all persons by sex (Only if some persons can stay in group)\n >>> 9 - Back to main menu\n >>> 0  - Exit");
 
     }
 

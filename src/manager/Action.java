@@ -8,7 +8,7 @@ public class Action {
 
     private Scannering sc = new Scannering();
 
-    public Student addStudent() throws IOException {
+    public Student addStudent() {
 
         Messeger.firstName();
         String firstName = sc.getStudentName();

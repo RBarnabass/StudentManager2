@@ -8,8 +8,7 @@ public class GetSelected {
         private final int GET_ALL_BY_LASTNAME = 2;
         private final int GET_ALL_BY_AGE = 3;
         private final int GET_ALL_BY_SEX = 4;
-        private final int GET_ALL_BY_STATUS = 5;
-        private final int BACK_TO_MAIN_MENU = 6;
+        private final int BACK_TO_MAIN_MENU = 5;
         private final int EXIT = 0;
 
         private Scannering scan = new Scannering();
@@ -40,12 +39,6 @@ public class GetSelected {
                 case GET_ALL_BY_SEX: {
 
                    action.getAllByIndexName(sg.getAllPersonsIndexBySex(scan.getStudentName()));
-                    return 1;
-                }
-
-                case GET_ALL_BY_STATUS: {
-
-                    action.getAllByIndexNameB(sg.getAllPersonsIndexByStatus(scan.getStudentName()));                     // Do not work yet
                     return 1;
                 }
 

@@ -38,21 +38,6 @@ public class NoteOutBook {
         }
     }
 
-   /* public void getNoteBookFresh() {
-
-        try {
-            FileReader reader = new FileReader(path);
-            BufferedReader bufferedReader = new BufferedReader(reader);
-
-            while ((Menu.list[i] = bufferedReader.readLine()) != null) {
-                i++;
-            }
-        }
-
-        catch (IOException e) {
-            e.printStackTrace();
-        }
-    }*/
 
     public int getNumber() throws IOException {
 
