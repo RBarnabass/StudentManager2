@@ -4,13 +4,13 @@ import java.io.*;
 
 public class NoteInBook {
 
-    public  void noteInBook(String totalName) {
+    public  void noteInBook(Student student) {
 
         File myFile = new File("Students list.txt");
 
         try {
             PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(myFile, true)));
-            writer.println(totalName);
+            writer.println(student);
             writer.flush();
             writer.close();
 
@@ -43,6 +43,21 @@ public class NoteInBook {
             writer.write(tmp);
             writer.close();
 
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void writeObject(Student student) {
+
+        try {
+            FileOutputStream fos = new FileOutputStream("Students list.txt");
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+
+            oos.defaultWriteObject();
+            oos.writeObject(student);
+
+            oos.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

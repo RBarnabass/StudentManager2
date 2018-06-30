@@ -4,7 +4,7 @@ import java.io.IOException;
 
 public class StudentGroup {
 
-    private Object[] group = new Object[20];
+    private Student[] group = new Student[20];
     private int size = 0;
     private String[] allIndex = new String[50];
     private int[] indexPack = new int[50];
@@ -14,7 +14,7 @@ public class StudentGroup {
         fullMass();
     }             // Fill up mass with start (temporary)
 
-    public void addPerson(Object stud) {
+    public void addPerson(Student stud) {
         if (size >= group.length) {
             extendArray();
         }
@@ -25,19 +25,19 @@ public class StudentGroup {
     }
 
     private void extendArray() {
-        Object[] newArr = new Object[size << 1];
+        Student[] newArr = new Student[size << 1];
         System.arraycopy(group, 0, newArr, 0, group.length);
         group = newArr;
     }
 
-    public void prepend(Object stud) {
-        Object[] tmp = new Object[group.length + 1];
+    public void prepend(Student stud) {
+        Student[] tmp = new Student[group.length + 1];
         System.arraycopy(group, 0, tmp, 1, group.length);
         tmp[0] = stud;
         group = tmp;
     }
 
-    public Object getPerson(int index) {
+    public Student getPerson(int index) {
         if (index < group.length && index >= 0) {
             return group[index];
         } else {
@@ -51,7 +51,7 @@ public class StudentGroup {
 
             if (group[i] != null) {
 
-                Student student = (Student) group[i];
+                Student student = group[i];
                 System.out.println(student.getTotalName());
             }
         }
@@ -60,7 +60,7 @@ public class StudentGroup {
     public int getPersonIndexByFirstName(String name) {
         for (int i = 0; i < group.length; i++) {
             if (group[i] != null) {
-                Student student = (Student) group[i];
+                Student student = group[i];
                 if (student.getFirstName().equals(name)) {
                     return i;
                 }
@@ -72,7 +72,7 @@ public class StudentGroup {
     public int getPersonIndexByLastName(String name) {
         for (int i = 0; i < group.length; i++) {
             if (group[i] != null) {
-                Student student = (Student) group[i];
+                Student student = group[i];
                 if (student.getLastName().equals(name)) {
                     return i;
                 }
@@ -84,7 +84,7 @@ public class StudentGroup {
     public int getPersonIndexByAge(int age) {
         for (int i = 0; i < group.length; i++) {
             if (group[i] != null) {
-                Student student = (Student) group[i];
+                Student student = group[i];
                 if (student.getAge() == age) {
                     return i;
                 }
@@ -94,10 +94,11 @@ public class StudentGroup {
     }
 
     public int getPersonIndexBySex(String sex) {
+
         for (int i = 0; i < group.length; i++) {
             if (group[i] != null) {
-                Student student = (Student) group[i];
-                if (student.getLastName().equals(sex)) {
+                Student student = group[i];
+                if (student.getSex().equals(sex)) {
                     return i;
                 }
             }
@@ -108,7 +109,7 @@ public class StudentGroup {
     public int[] getAllPersonsIndexByFirstName(String name) {
         for (int i = 0; i < group.length; i++) {
             if (group[i] != null) {
-                Student student = (Student) group[i];
+                Student student = group[i];
                 if (student.getFirstName().equals(name)) {
                      allIndex[k] = String.valueOf(i);
                      k++;
@@ -121,7 +122,7 @@ public class StudentGroup {
     public int[] getAllPersonsIndexByLastName(String name) {
         for (int i = 0; i < group.length; i++) {
             if (group[i] != null) {
-                Student student = (Student) group[i];
+                Student student = group[i];
                 if (student.getLastName().equals(name)) {
                     allIndex[k] = String.valueOf(i);
                     k++;
@@ -134,7 +135,7 @@ public class StudentGroup {
     public int[] getAllPersonsIndexByAge(int age) {
         for (int i = 0; i < group.length; i++) {
             if (group[i] != null) {
-                Student student = (Student) group[i];
+                Student student = group[i];
                 if (student.getAge() == age) {
                     allIndex[k] = String.valueOf(i);
                     k++;
@@ -145,9 +146,12 @@ public class StudentGroup {
     }
 
     public int[] getAllPersonsIndexBySex(String sex) {
+
         for (int i = 0; i < group.length; i++) {
+
             if (group[i] != null) {
-                Student student = (Student) group[i];
+                Student student = group[i];
+
                 if (student.getSex().equals(sex)) {
                     allIndex[k] = String.valueOf(i);
                     k++;
@@ -158,9 +162,12 @@ public class StudentGroup {
     }
 
     public int[] getAllPersonsIndexByStatus(String status) {
-        for (int i = 0; i < group.length; i++) {
+
+        for (int i = 0; i < group.length; i++)  {
+
             if (group[i] != null) {
                 Bachelor bachelor = (Bachelor) group[i];
+
                 if (bachelor.getTotalName().equals(status)) {
                     allIndex[k] = String.valueOf(i);
                     k++;
@@ -173,22 +180,23 @@ public class StudentGroup {
     private int[] getCasting(String[] str) {
         int[] tmp = new int[k];
         int j = 0;
-            for (int i = 0; i < str.length; i++) {
-                if (str[i] != null) {
-                    tmp[j] = Integer.valueOf(str[i]);
-                    j++;
-                }
+        for (int i = 0; i < str.length; i++) {
+            if (str[i] != null) {
+                tmp[j] = Integer.valueOf(str[i]);
+                j++;
             }
-            return tmp;
         }
+        return tmp;
+    }
 
-        public void fullMass() throws IOException {
-            Student rb = new Student("Roman", "Berezhnov", 28, "male" );
+    public void fullMass() throws IOException {
+
+            Student rb = new Student("Roman", "Berezhnov", 28, "male");
             Student al = new Student("Adriana", "Lima", 33, "female");
             Student at = new Student("Adriana", "Tima", 35, "female");
             Student an = new Student("Adriana", "Nina", 33, "female");
-            Student nb = new Student("Norman", "Berezhnov", 28, "male" );
-            Student rz = new Student("Rembrant", "Zakarpatskiy", 41, "male" );
+            Student nb = new Student("Norman", "Berezhnov", 28, "male");
+            Student rz = new Student("Rembrant", "Zakarpatskiy", 41, "male");
 
             addPerson(rb);
             addPerson(al);
@@ -198,18 +206,32 @@ public class StudentGroup {
             prepend(rz);
         }
 
-
     public void remove(int index) {
-        if (index < group.length) {
 
-            Object[] tmpArr = new Object[group.length - 1];
+        if (index < group.length && index >= 0) {
+
+            Student[] tmpArr = new Student[group.length - 1];
             System.arraycopy(group, 0, tmpArr, 0, index);
             System.arraycopy(group, index + 1, tmpArr, index, group.length - index - 1);
             group = tmpArr;
             System.out.println("And successfully removed");
+
         } else {
             throw new ArrayIndexOutOfBoundsException();
         }
     }
 
+    // ------------------------------------------------------------------------------------------------------------
+
+    public void writeDown() {
+
+        new NoteInBook().clear();
+
+        for (int i = 0; i < group.length; i++) {
+
+            if (group[i] != null) {
+                new NoteInBook().noteInBook(group[i]);
+            }
+        }
+    }
 }

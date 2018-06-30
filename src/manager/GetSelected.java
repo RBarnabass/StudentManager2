@@ -1,6 +1,6 @@
 package manager;
 
-import java.io.IOException;
+import static manager.Scannering.sg;
 
 public class GetSelected {
 
@@ -13,59 +13,51 @@ public class GetSelected {
         private final int EXIT = 0;
 
         private Scannering scan = new Scannering();
-        private StudentGroup studGrp = new StudentGroup();
         private Action action = new Action();
 
-    public GetSelected() throws IOException {
-    }
-
-    public void getSelected() {
+    public int getSelected() {
 
             switch (scan.getGetAction()) {
 
                 case GET_ALL_BY_FIRSTNAME: {
 
-                    action.getAllByIndexName(studGrp.getAllPersonsIndexByFirstName(scan.getStudentName()));
-                    break;
+                    action.getAllByIndexName(sg.getAllPersonsIndexByFirstName(scan.getStudentName()));
+                    return 1;
                 }
 
                 case GET_ALL_BY_LASTNAME: {
 
-                    action.getAllByIndexName(studGrp.getAllPersonsIndexByLastName(scan.getStudentName()));
-                    break;
+                   action.getAllByIndexName(sg.getAllPersonsIndexByLastName(scan.getStudentName()));
+                    return 1;
                 }
 
                 case GET_ALL_BY_AGE: {
 
-                    action.getAllByIndexName(studGrp.getAllPersonsIndexByAge(scan.getAge()));
-                    break;
+                    action.getAllByIndexName(sg.getAllPersonsIndexByAge(scan.getAge()));
+                    return 1;
                 }
 
                 case GET_ALL_BY_SEX: {
 
-                    action.getAllByIndexName(studGrp.getAllPersonsIndexBySex(scan.getStudentName()));
-                    break;
+                   action.getAllByIndexName(sg.getAllPersonsIndexBySex(scan.getStudentName()));
+                    return 1;
                 }
 
                 case GET_ALL_BY_STATUS: {
 
-                    action.getAllByIndexName(studGrp.getAllPersonsIndexByStatus(scan.getStudentName()));                     // Do not work yet
-                    break;
+                    action.getAllByIndexNameB(sg.getAllPersonsIndexByStatus(scan.getStudentName()));                     // Do not work yet
+                    return 1;
                 }
 
                 case BACK_TO_MAIN_MENU: {
 
-                    Menu.bool3 = false;
-                    break;
+                   return 1;
                 }
 
                 case EXIT: {
-
                     Messeger.parting();
-                    Menu.bool3 = false;
-                    Menu.bool = false;
-                    break;
                 }
             }
+            return 0;
         }
 }

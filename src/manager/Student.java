@@ -1,8 +1,8 @@
 package manager;
 
-import java.io.IOException;
+import java.io.Serializable;
 
-public class Student {
+public class Student implements Serializable {
 
     private String firstName;
     private String lastName;
@@ -10,9 +10,7 @@ public class Student {
     private String totalName;
     private int age;
 
-    private NoteInBook note = new NoteInBook();
-
-    public Student(String firstName, String lastName, int age, String sex) throws IOException {
+    public Student(String firstName, String lastName, int age, String sex) {
 
         this.firstName = firstName;
         this.lastName = lastName;
@@ -21,7 +19,6 @@ public class Student {
 
         totalName = this.lastName + " " + this.firstName + " " + this.age + " " + this.sex + " ";
 
-        note.noteInBook(totalName);
     }
 
     public String getFirstName() {

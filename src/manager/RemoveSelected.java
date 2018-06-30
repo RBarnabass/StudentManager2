@@ -1,11 +1,10 @@
 package manager;
 
-import java.io.IOException;
+import static manager.Scannering.sg;
 
 public class RemoveSelected {
 
     private Scannering scan = new Scannering();
-    private StudentGroup studGrp = new StudentGroup();
     private Action action = new Action();
 
     private final int REMOVE_FIRST_BY_FIRSTNAME = 1;
@@ -22,109 +21,100 @@ public class RemoveSelected {
     private final int BACK_TO_MAIN_MENU = 12;
     private final int EXIT = 0;
 
-    public RemoveSelected() throws IOException {
-    }
-
-    public void removeSelected() {
+    public int removeSelected() {
 
         switch (scan.getRemoveAction()) {
 
             case REMOVE_FIRST_BY_FIRSTNAME: {
 
-                int index = studGrp.getPersonIndexByFirstName(scan.getStudentName());
+                int index = sg.getPersonIndexByFirstName(scan.getStudentName());
 
                 if (index >= 0) {
-                    studGrp.remove(index);
+                    sg.remove(index);
                 }
-                break;
+                return 1;
             }
 
             case REMOVE_FIRST_BY_LASTNAME: {
 
-                int index = studGrp.getPersonIndexByLastName(scan.getStudentName());
+                int index = sg.getPersonIndexByLastName(scan.getStudentName());
 
                 if (index >= 0) {
-                    studGrp.remove(index);
+                    sg.remove(index);
                 }
-                break;
+                return 1;
             }
 
             case REMOVE_FIRST_BY_AGE: {
 
-                int index = studGrp.getPersonIndexByAge(scan.getAge());
+                int index = sg.getPersonIndexByAge(scan.getAge());
 
                 if (index >= 0) {
-                    studGrp.remove(index);
+                    sg.remove(index);
                 }
-                break;
+                return 1;
             }
 
             case REMOVE_FIRST_BY_SEX: {
 
-                int index = studGrp.getPersonIndexBySex(scan.getStudentName());
+                int index = sg.getPersonIndexBySex(scan.getStudentName());
 
                 if (index >= 0) {
-                    studGrp.remove(index);
+                    sg.remove(index);
                 }
-                break;
+                return 1;
             }
 
             case REMOVE_ALL_BY_STATUS: {
 
                 System.out.println(" Sorry this option in progress !");                    // Not ready class to that
-                break;
+                return 1;
             }
 
             case REMOVE_ALL_BY_FIRSTNAME: {
 
                 action.removeAllByIndexFirstName(scan.getStudentName());
-                break;
+                return 1;
             }
 
             case REMOVE_ALL_BY_LASTNAME: {
 
-                action.removeAllByIndexLastName(scan.getStudentName());
-                break;
+               action.removeAllByIndexLastName(scan.getStudentName());
+                return 1;
             }
 
             case REMOVE_ALL_BY_AGE: {
 
                 action.removeAllByIndexAge(scan.getAge());
-                break;
+                return 1;
             }
 
             case REMOVE_ALL_BY_SEX: {                                                     // Out of bounds ??
 
-                System.out.println(" Sorry this option in progress !");
-               // action.removeAllByIndexSex(scan.getStudentName());
-                break;
+                action.removeAllByIndexSex(scan.getStudentName());
+                return 1;
             }
 
             case REMOVE_BY_FULL_NAME: {
 
                 System.out.println(" Sorry this option in progress !");                    // Return to this
-                break;
+                return 1;
             }
 
             case REMOVE_ALL: {
 
                 System.out.println(" Sorry this option in progress !");                    // Return to this
-                break;
+                return 1;
             }
 
             case BACK_TO_MAIN_MENU: {
-
-                Menu.bool4 = false;
-                break;
+                return 1;
             }
 
             case EXIT: {
-
                 Messeger.parting();
-                Menu.bool4 = false;
-                Menu.bool = false;
-                break;
             }
         }
+        return 0;
     }
 }

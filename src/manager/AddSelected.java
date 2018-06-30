@@ -2,6 +2,8 @@ package manager;
 
 import java.io.IOException;
 
+import static manager.Scannering.sg;
+
 public class AddSelected {
     private final int STUDENT_ADD = 1;
     private final int BACHELOR_ADD = 2;
@@ -12,12 +14,8 @@ public class AddSelected {
 
     private Scannering scan = new Scannering();
     private Action action = new Action();
-    private StudentGroup sg = new StudentGroup();
 
-    public AddSelected() throws IOException {
-    }
-
-    public void addSelected() throws IOException {
+    public int addSelected() throws IOException {
 
         switch (scan.getAddAction()) {
 
@@ -25,41 +23,37 @@ public class AddSelected {
 
                 sg.addPerson(action.addStudent());
                 Messeger.studentCreated();
-                break;
+                sg.getAllGroup();
+                return 1;
             }
 
             case BACHELOR_ADD: {
 
                 sg.addPerson(action.addBachelor());
                 Messeger.bachelorIsCreated();
-                break;
+                return 1;
             }
 
             case STUDENT_ADD_AT_FIRST_POSITION: {
 
                 sg.prepend(action.addStudent());
-                break;
+                return 1;
             }
 
             case BACHELOR_ADD_AT_FIRST_POSITION: {
 
                 sg.prepend(action.addBachelor());
-                break;
+                return 1;
             }
 
             case BACK_TO_MAIN_MENU: {
-
-                Menu.bool2 = false;
-                break;
+                return 1;
             }
 
             case EXIT: {
-
                 Messeger.parting();
-                Menu.bool2 = false;
-                Menu.bool = false;
-                break;
             }
         }
+        return 0;
     }
 }

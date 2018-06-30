@@ -3,10 +3,19 @@ package manager;
 import java.io.IOException;
 import java.util.Scanner;
 
-
-
 public class Scannering {
+
     private Scanner scan = new Scanner(System.in);
+    public static StudentGroup sg;
+
+    static {
+        try {
+            sg = new StudentGroup();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public int getAction() {
 
@@ -22,7 +31,7 @@ public class Scannering {
             Messeger.error();
         }
 
-        return 0;
+        return 1;
     }
 
     public String getStudentName() {
@@ -52,7 +61,7 @@ public class Scannering {
         return 0;
     }
 
-    public void remove() throws IOException {
+   /* public void remove() throws IOException {
 
         String name = scan.next();
 
@@ -70,7 +79,7 @@ public class Scannering {
                 }
             }
         }
-    }
+    }*/
 
     // ------------------------------ ADD --------------------------------------------------------------------------------
 

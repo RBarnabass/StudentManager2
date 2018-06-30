@@ -6,7 +6,7 @@ public class Bachelor extends Student {
     private String status = " Bachelor";
 
     public Bachelor(String firstName, String lastName, int age, String sex) throws IOException {
-        super(firstName, lastName, age, sex + " Bachelor");
+        super(firstName, lastName, age, sex);
     }
 
     public String getTotalName() {
