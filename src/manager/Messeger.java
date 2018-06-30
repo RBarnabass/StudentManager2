@@ -83,7 +83,7 @@ public class Messeger {
         System.out.println(" - - - Choose your action, please - - - ");
         System.out.println();
         System.out.println(" >>> 1  - Remove first person by first name\n >>> 2  - Remove first person by last name\n >>> 3  - Remove first person by age\n >>> 4  - Remove first person by sex\n " +
-                " >>> 5  - Remove all persons by first name\n >>> 6  - Remove all persons by last name\n >>> 7  - Remove all persons by age\n >>> 8  - Remove all persons by sex (Only if some persons can stay in group)\n >>> 9 - Back to main menu\n >>> 0  - Exit");
+                ">>> 5  - Remove all persons by first name\n >>> 6  - Remove all persons by last name\n >>> 7  - Remove all persons by age\n >>> 8  - Remove all persons by sex (Only if some persons can stay in group)\n >>> 9 - Back to main menu\n >>> 0  - Exit");
 
     }
 
